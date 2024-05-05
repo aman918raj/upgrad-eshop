@@ -2,7 +2,7 @@
 
 1. Navigate to frontend folder
 2. Run "npm i redux react-redux"
-3. Run "npm start"
+3. Run "npm start" -> will run on localhost:3000
 If the above command works, then good else run the below code
 npm run build
 5. Install mongodb and run it
