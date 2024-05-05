@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "6630b0eb49162665bf3eb759"
+  },
+  "id": "t1",
+  "name": "Porsche Legacy Caven 2.0 Unisex Motorsport Sneakers",
+  "category": "Footwear",
+  "price": "6999.0",
+  "manufacturer": "Puma",
+  "availableItems": 1,
+  "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/308158/01/fnd/IND/fmt/png/Porsche-Legacy-Caven-2.0-Unisex-Motorsport-Sneakers"
+},{
+  "_id": {
+    "$oid": "663719c54585499ac1af675e"
+  },
+  "id": "t2",
+  "name": "iphone 15",
+  "category": "Electronics",
+  "price": "65000.0",
+  "manufacturer": "Apple",
+  "availableItems": 1,
+  "imageUrl": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch-blue?wid=5120&hei=2880&fmt=webp&qlt=70&.v=cHJOTXEwTU92OEtKVDV2cVB1R2FTSjlERndlRTljaUdZeHJGM3dlLzR2OGlYQ0tYMHd1OS9ZREtnNzFSR1owOHF2TWlpSzUzejRCZGt2SjJUNGl1VEtsS0dZaHBma3VTb3UwU2F6dkc4TGZPaDVjV2NEQVBZbTZldUQyWkpKRHk=&traceId=1"
+}]
