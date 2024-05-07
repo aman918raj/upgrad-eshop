@@ -26,10 +26,10 @@ export const doLogin = (email, password) => {
 				let token = json.token;
 				let decoded = jwt_decode(token);
 				promiseResolveRef({
-					username: json.email,
+					username: decoded.sub,
 					accessToken: token,
 					accessTokenTimeout: decoded.exp * 1000, //convert to epoch
-					roles: json.roles,
+					roles: ["USER"],
 					userId: json.id,
 					response: response,
 				});
