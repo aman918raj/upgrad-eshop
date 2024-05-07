@@ -12,7 +12,7 @@ export const fetchAllCategories = (accessToken) => {
 	fetch('http://localhost:8080/api/products/categories', {
 		method: 'GET',
 		headers: {
-			'x-auth-token': accessToken,
+			'Authorization': `Bearer ${accessToken}`,
 		},
 	}).then((response) => {
 		response.json().then((json) => {

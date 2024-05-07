@@ -12,7 +12,7 @@ export const fetchAllProducts = (accessToken) => {
 	fetch('http://localhost:8080/api/products', {
 		method: 'GET',
 		headers: {
-			'x-auth-token': accessToken,
+			'Authorization': `Bearer ${accessToken}`,
 		},
 	}).then((response) => {
 		response.json().then((json) => {
@@ -51,7 +51,7 @@ export const createProduct = (requestJson, accessToken) => {
 		body: JSON.stringify(requestJson),
 		headers: {
 			'Content-type': 'application/json; charset=UTF-8',
-			'x-auth-token': accessToken,
+			'Authorization': `Bearer ${accessToken}`,
 		},
 	}).then((response) => {
 		response.text().then((json) => {
@@ -92,7 +92,7 @@ export const deleteProduct = (id, accessToken) => {
 	fetch('http://localhost:8080/api/products/'+id, {
 		method: 'DELETE',
 		headers: {
-			'x-auth-token': accessToken,
+			'Authorization': `Bearer ${accessToken}`,
 		},
 	}).then((response) => {
 		response.text().then(() => {
@@ -130,7 +130,7 @@ export const modifyProduct = (requestJson, accessToken) => {
 		body: JSON.stringify(requestJson),
 		headers: {
 			'Content-type': 'application/json; charset=UTF-8',
-			'x-auth-token': accessToken,
+			'Authorization': `Bearer ${accessToken}`,
 		},
 	}).then((response) => {
 		response.text().then((json) => {
@@ -171,7 +171,7 @@ export const viewProduct = (id, accessToken) => {
 	fetch('http://localhost:8080/api/products/'+id, {
 		method: 'GET',
 		headers: {
-			'x-auth-token': accessToken,
+			'Authorization': `Bearer ${accessToken}`,
 		},
 	}).then((response) => {
 		response.json().then((json) => {

@@ -103,8 +103,6 @@ const Address = ({callbackFunction, address}) => {
 		setFormData(data);
 		if(validAddress) {
 			if(isAccessTokenValid()) {
-				console.log(requestJson);
-				console.log(accessToken);
 				createAddress(requestJson, accessToken).then(() => {
 					setShowInfo(true);
 					setShowMessage("Address saved successfully.");
@@ -251,7 +249,7 @@ const Address = ({callbackFunction, address}) => {
 		callbackFunction(null);
 	};
 
-	const initDropdown = useCallback(() => {
+	const initDropdown = useCallback(() => { 
 		if(isAccessTokenValid()) {
 			fetchAllAddresses(accessToken).then((json) => {
 				setAddressList(json.data);

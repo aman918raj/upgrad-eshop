@@ -33,6 +33,7 @@ public class User {
     @Size(max = 255)
     private String password;
 
+    @DBRef
     private Set<Role> roles;
 
     @NotNull

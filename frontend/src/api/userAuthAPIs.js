@@ -23,7 +23,6 @@ export const doLogin = (email, password) => {
 	}).then((response) => {
 		response.json().then((json) => {
 			if(response.ok) {
-				//let token = response.headers.get("x-auth-token");
 				let token = json.token;
 				let decoded = jwt_decode(token);
 				promiseResolveRef({
@@ -31,7 +30,7 @@ export const doLogin = (email, password) => {
 					accessToken: token,
 					accessTokenTimeout: decoded.exp * 1000, //convert to epoch
 					roles: json.roles,
-					userId: json.userId,
+					userId: json.id,
 					response: response,
 				});
 			} else {

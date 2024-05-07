@@ -23,6 +23,7 @@ public class AddressDTO {
     @Size(max = 255)
     private String city;
 
+    @NotNull
     @Size(max = 255)
     private String landmark;
 

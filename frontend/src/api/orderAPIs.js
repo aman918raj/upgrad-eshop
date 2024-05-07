@@ -14,7 +14,7 @@ export const createOrder = (requestJson, accessToken) => {
 		body: JSON.stringify(requestJson),
 		headers: {
 			'Content-type': 'application/json; charset=UTF-8',
-			'x-auth-token': accessToken,
+			'Authorization': `Bearer ${accessToken}`,
 		},
 	}).then((response) => {
 		response.text().then(() => {

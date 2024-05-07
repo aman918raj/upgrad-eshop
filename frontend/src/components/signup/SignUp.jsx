@@ -47,11 +47,6 @@ const SignUp = () => {
 			error: false,
 			errorMessage: null,
 		},
-		role:{
-			value: "",
-			error: false,
-			errorMessage: null,
-		}
 	};
 
 	const [formData, setFormData] = useState(initialState);
@@ -156,11 +151,6 @@ const SignUp = () => {
 				case "contactNumber": {
 					valid = matchRegex(value, "^([7-9]{1}[0-9]{9})$");
 					message = "Please enter valid contact number.";
-					break;
-				}
-				case "role": {
-					valid = (value === "USER" || value === "ADMIN");
-					message = "role can be either USER or ADMIN";
 					break;
 				}
 				default : {
@@ -298,19 +288,6 @@ const SignUp = () => {
 										   onBlur={(event) => validateAndSaveInMemory("contactNumber", event.target.value)}
 										   error={formData.contactNumber.error}
 										   helperText={formData.contactNumber.error && formData.contactNumber.errorMessage}
-								/>
-							</div>
-							<div style={{display: 'flex', justifyContent: 'center', marginTop: "30px"}}>
-								<TextField id="role"
-										   label="Role *"
-										   variant="outlined"
-										   fullWidth
-										   type="role"
-										   value={formData.role.value}
-										   onChange={(event) => saveOnChange("role", event.target.value)}
-										   onBlur={(event) => validateAndSaveInMemory("role", event.target.value)}
-										   error={formData.role.error}
-										   helperText={formData.role.error && formData.role.errorMessage}
 								/>
 							</div>
 							<div style={{display: 'flex', justifyContent: 'center', marginTop: "30px"}}>

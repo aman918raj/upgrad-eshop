@@ -11,7 +11,6 @@ import "./productCard.css";
 const ProductCard = ({mode, deleteProduct, modifyProduct, buyProduct, ...details}) => {
 
 	let truncateText = (text) => {
-		console.log(text);
 		if(150 > text.length) {
 			return text;
 		}

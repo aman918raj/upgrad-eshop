@@ -3,6 +3,7 @@ package com.upgrad.ecommerce.controllers;
 import com.upgrad.ecommerce.dto.LoginRequest;
 import com.upgrad.ecommerce.dto.MessageResponse;
 import com.upgrad.ecommerce.dto.SignupRequest;
+import com.upgrad.ecommerce.dto.UserInfoResponse;
 import com.upgrad.ecommerce.models.ERole;
 import com.upgrad.ecommerce.models.Role;
 import com.upgrad.ecommerce.models.User;
@@ -12,6 +13,7 @@ import com.upgrad.ecommerce.security.jwt.JwtUtils;
 import com.upgrad.ecommerce.security.services.UserDetailsImpl;
 import com.upgrad.ecommerce.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -63,9 +65,9 @@ public class AuthController {
 
         Map<Object, Object> model = new HashMap<>();
         model.put("token", token);
-        model.put("email", userDetails.getUsername());
+        model.put("email", userDetails.getEmail());
         model.put("roles", userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()));
-        model.put("userId", userDetails.getId());
+        model.put("id", userDetails.getId());
         return ok(model);
 
 //        List<String> roles = userDetails.getAuthorities().stream()
@@ -81,9 +83,6 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
-
-        Set<String> reqRole = new HashSet<>();
-        reqRole.add(signUpRequest.getRole());
         if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
         }
@@ -95,7 +94,7 @@ public class AuthController {
         user.setEmail(signUpRequest.getEmail());
         user.setPassword(encoder.encode(signUpRequest.getPassword()));
 
-        Set<String> strRoles = reqRole;
+        Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
 
         if (strRoles == null) {
