@@ -10,7 +10,5 @@ npm run build
 7. create products collection inside ecommerce db.
 8. Load products collection with json file in the parent project.
 
-NOTE: THERE WAS an ISSUE WITH BACKEND CODE. WE HAVE FIXED BY ADDING BELOW CODE TO BACKED com.upgrad.ecommerce.controllers.AuthController.java FILE. ADDED THE BELOW 3 LINES AFTER LINE NO. 67:
-model.put("email", userDetails.getEmail());
-model.put("roles", userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()));
+NOTE: THERE WAS an ISSUE WITH BACKEND CODE. WE HAVE FIXED BY ADDING BELOW CODE TO BACKED com.upgrad.ecommerce.controllers.AuthController.java FILE. ADDED THE BELOW 1 LINE AFTER LINE NO. 63:
 model.put("id", userDetails.getId());
