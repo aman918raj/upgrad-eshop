@@ -65,8 +65,6 @@ public class AuthController {
 
         Map<Object, Object> model = new HashMap<>();
         model.put("token", token);
-        model.put("email", userDetails.getEmail());
-        model.put("roles", userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()));
         model.put("id", userDetails.getId());
         return ok(model);
 
